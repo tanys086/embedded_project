@@ -1,20 +1,10 @@
-#include "pico/stdlib.h"
-#include "hardware/timer.h"
-#include <stdint.h>
-#include "pico/time.h"
 
-// Pin definitions
-#define LEFT_ENCODER_PIN 4   // GPIO pin for the left rotary encoder signal
-#define RIGHT_ENCODER_PIN 5  // GPIO pin for the right rotary encoder signal
+#include "encoder.h"
 
-// Constants for distance calculation
-#define WHEEL_CIRCUMFERENCE_CM 20.42  // Circumference of the wheel in centimeters (3.25 RADIUS)
-#define NOTCHES_PER_ROTATION 20    // Number of notches in the encoder wheel
-#define WHEEL_BASE_CM 13 // Distance between the two wheels in centimeters
-
-// Variables to store the pulse count for each encoder
+// Global variables to store the pulse count for each encoder
 volatile uint32_t left_pulse_count = 0;
 volatile uint32_t right_pulse_count = 0;
+
 
 // Interrupt service routines for the encoders
 void shared_encoder_isr(uint gpio, uint32_t events) {

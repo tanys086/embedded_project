@@ -1,10 +1,10 @@
 #ifndef ENCODER_H
 #define ENCODER_H
 
+#include <stdint.h>
 #include "pico/stdlib.h"
 #include "hardware/timer.h"
 #include "pico/time.h"
-#include <stdint.h>
 
 // Pin definitions
 #define LEFT_ENCODER_PIN 4   // GPIO pin for the left rotary encoder signal

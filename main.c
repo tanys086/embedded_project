@@ -1,11 +1,3 @@
-#include <stdio.h>
-#include "pico/stdlib.h"
-#include "hardware/pwm.h"
-#include "hardware/gpio.h"
-#include "hardware/timer.h"
-#include <math.h>
-#include "pico/time.h"
-
 #include "ultrasonic.h"
 #include "encoder.h"
 #include "pid.h"

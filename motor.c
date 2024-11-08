@@ -1,9 +1,3 @@
-
-#include "pico/stdlib.h"
-#include "hardware/gpio.h"
-#include "hardware/pwm.h"
-#include "hardware/timer.h"
-#include <math.h>
 #include "motor.h"
 
 
@@ -32,6 +26,18 @@ void setup_motor_pin(){
     gpio_pull_up(BUTTON_CCW);   // Enable pull-up resistor
     gpio_pull_up(BUTTON_STOP);  // Enable pull-up resistor
 
+}
+
+// Function to set up the PWM
+void setup_pwm(uint gpio, float freq, float duty_cycle) {
+    gpio_set_function(gpio, GPIO_FUNC_PWM);
+    uint slice_num = pwm_gpio_to_slice_num(gpio);
+    float clock_freq = 125000000.0f;  // Default Pico clock frequency in Hz
+    uint32_t divider = clock_freq / (freq * 65536);
+    pwm_set_clkdiv(slice_num, divider);
+    pwm_set_wrap(slice_num, 65535);  // 16-bit counter (0 - 65535)
+    pwm_set_gpio_level(gpio, (uint16_t)(duty_cycle * 65536));
+    pwm_set_enabled(slice_num, true);
 }
 
 void turn_right() {

@@ -5,6 +5,7 @@ ultrasonic.c
 encoder.c
 line_sensor.c
 pid.c
+barcode.c
         )
 
 # pull in common dependencies and additional pwm hardware support

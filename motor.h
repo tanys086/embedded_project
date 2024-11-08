@@ -25,5 +25,6 @@
 // Function prototypes
 void setup_motor_pin();
 void turn_right();
+void setup_pwm(uint gpio, float freq, float duty_cycle);
 
 #endif

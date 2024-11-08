@@ -1,5 +1,3 @@
-
-
 #include "pid.h"
 
 // PID constants
@@ -7,17 +5,6 @@ float Kp = 0.0;  // Proportional gain
 float Ki = 0.0;  // Integral gain
 float Kd = 0.0;  // Derivative gain
 
-// Function to set up the PWM
-void setup_pwm(uint gpio, float freq, float duty_cycle) {
-    gpio_set_function(gpio, GPIO_FUNC_PWM);
-    uint slice_num = pwm_gpio_to_slice_num(gpio);
-    float clock_freq = 125000000.0f;  // Default Pico clock frequency in Hz
-    uint32_t divider = clock_freq / (freq * 65536);
-    pwm_set_clkdiv(slice_num, divider);
-    pwm_set_wrap(slice_num, 65535);  // 16-bit counter (0 - 65535)
-    pwm_set_gpio_level(gpio, (uint16_t)(duty_cycle * 65536));
-    pwm_set_enabled(slice_num, true);
-}
 
 // Function to compute the control signal
 float compute_pid(float setpoint, float current_value, float *integral, float *prev_error) {

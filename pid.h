@@ -13,8 +13,6 @@ extern float Kp;  // Proportional gain
 extern float Ki;  // Integral gain
 extern float Kd;  // Derivative gain
 
-// Function to set up the PWM
-void setup_pwm(uint gpio, float freq, float duty_cycle);
 
 // Function to compute the control signal
 float compute_pid(float setpoint, float current_value, float *integral, float *prev_error);

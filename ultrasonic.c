@@ -1,4 +1,3 @@
-
 #include "ultrasonic.h"
 
 // Ultrasonic sensor pins
