@@ -57,3 +57,5 @@ bool repeating_timer_callback(repeating_timer_t *rt);
 void reset_recording();
 void process_timings();
 void convert_binary_to_chars(char *result_chars);
+
+#endif

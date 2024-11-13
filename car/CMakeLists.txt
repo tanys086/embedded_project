@@ -3,5 +3,5 @@ if (NOT FREERTOS_KERNEL_PATH AND NOT DEFINED ENV{FREERTOS_KERNEL_PATH})
 else()
     include(FreeRTOS_Kernel_import.cmake)
 
-    add_subdirectory(project)
+    add_subdirectory(car_project)
 endif()
